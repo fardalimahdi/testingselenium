@@ -15,6 +15,15 @@ import org.openqa.selenium.NoSuchElementException;
 
 class ProfilDataTest extends PageBase {
 
+    private By nameXpath = By.xpath("/html/body/div[8]/div/form/div/div[4]/input");
+    private By phoneXpath = By.xpath("/html/body/div[8]/div/form/div/div[5]/input");
+    private By emailXpath = By.xpath("/html/body/div[8]/div/form/div/div[7]/input");
+    private By passwordXpath = By.xpath("/html/body/div[8]/div/form/div/div[8]/input");
+    private By repasswordXpath = By.xpath("/html/body/div[8]/div/form/div/div[9]/input");
+    private By cityXpath = By.xpath("/html/body/div[8]/div/form/div/div[11]/div/select");
+    private By mycityXpath = By.xpath("/html/body/div[8]/div/form/div/div[11]/div/select/option[7]");
+    private By countryXpath = By.xpath("/html/body/div[8]/div/form/div/div[12]/div/select");
+    private By mycountryXpath = By.xpath("/html/body/div[8]/div/form/div/div[12]/div/select/option[147]");
     private By femaleXpath = By.xpath("/html/body/div[8]/div/form/div/div[3]/div[2]/input");
     private By  maleXpath = By.xpath("/html/body/div[8]/div/form/div/div[3]/div[1]/input");
     private By addressXpath = By.xpath("/html/body/div[8]/div/form/div/div[10]/input");
@@ -34,6 +43,7 @@ class ProfilDataTest extends PageBase {
 
     Faker faker = new Faker();
     private String address = faker.address().streetAddress();
+    private String phone = faker.phoneNumber().phoneNumber();
 
 
     public ProfilDataTest(WebDriver driver) {
@@ -46,8 +56,29 @@ class ProfilDataTest extends PageBase {
         this.waitAndReturnElement(femaleXpath).click();
         this.waitAndReturnElement(maleXpath).click();
 
+        this.waitAndReturnElement(nameXpath).click();
+        this.waitAndReturnElement(nameXpath).sendKeys("Elmehdi Fardali");
+
+        this.waitAndReturnElement(phoneXpath).click();
+        this.waitAndReturnElement(phoneXpath).sendKeys(phone);
+
+        this.waitAndReturnElement(emailXpath).click();
+        this.waitAndReturnElement(emailXpath).sendKeys("patoxes327@animex98.com");
+
+        this.waitAndReturnElement(passwordXpath).click();
+        this.waitAndReturnElement(passwordXpath).sendKeys("123456abc");
+        
+        this.waitAndReturnElement(repasswordXpath).click();
+        this.waitAndReturnElement(repasswordXpath).sendKeys("123456abc");
+
+        this.waitAndReturnElement(cityXpath).click();
+        this.waitAndReturnElement(mycityXpath).click();
+        this.waitAndReturnElement(countryXpath).click();
+        this.waitAndReturnElement(mycountryXpath).click();
+
         this.waitAndReturnElement(addressXpath).click();
         this.waitAndReturnElement(addressXpath).sendKeys(address);
+
         this.waitAndReturnElement(activityXpath).click();
         this.waitAndReturnElement(myactivityXpath).click();
         this.waitAndReturnElement(ageXpath).click();

@@ -26,14 +26,16 @@ public class SeleniumTest {
     
     @Test
     public void testContact() {
-        //ContactUsTest cut = new ContactUsTest(this.driver);
-        //ContactUsResultPage result = cut.contact();
+        ContactUsTest cut = new ContactUsTest(this.driver);
+        ContactUsResultPage result = cut.contact();
         LoginTest lg = new LoginTest(this.driver);
         lg.login();
         ProfilDataTest pdt = new ProfilDataTest(this.driver);
         pdt.profil();
         SearchTest rgt = new SearchTest(this.driver);
         SearchResultPage result2 = rgt.search();
+        LogoutTest lgt = new LogoutTest(this.driver);
+        lgt.logout();
     }
     @After
     public void close() {
